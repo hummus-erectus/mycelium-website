@@ -5,6 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+// Temporarily points to the Manifund campaign, which closes 17 Oct 2026.
+// After it closes, switch back to "https://www.every.org/projectmycelium"
+// and remove the "support our work through Manifund" link on the homepage.
+const DONATE_URL = "https://manifund.org/projects/mycelium-moral-patienthood-for-agi";
+
 function NavLink({
   href,
   children,
@@ -55,7 +60,7 @@ export default function Navbar() {
           <NavLink href="/contact">contact</NavLink>
           <NavLink href="/community">community</NavLink>
           <a
-            href="https://www.every.org/projectmycelium"
+            href={DONATE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-green px-5 py-2.5 text-lg font-medium text-white transition-all duration-200 hover:bg-green-hover hover:scale-[1.02]"
@@ -95,7 +100,7 @@ export default function Navbar() {
           <NavLink href="/contact" onClick={close}>contact</NavLink>
           <NavLink href="/community" onClick={close}>community</NavLink>
           <a
-            href="https://www.every.org/projectmycelium"
+            href={DONATE_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={close}
